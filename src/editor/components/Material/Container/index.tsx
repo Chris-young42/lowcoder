@@ -2,13 +2,14 @@ import type React from "react";
 import { useMaterailDrop } from "../../../hooks/useMaterialDrop";
 import type { CommonComponentProps } from "../../../interface";
 
-const Container = ({ id, children }: CommonComponentProps) => {
+const Container = ({ id, children, styles }: CommonComponentProps) => {
   const { canDrop, drop } = useMaterailDrop(["Button", "Container"], id);
 
   return (
     <div
       data-component-id={id}
       ref={drop as unknown as React.Ref<HTMLDivElement>}
+      style={styles}
       className={`min-h-[100px] p-[20px] ${
         canDrop ? "border-[2px] border-[blue]" : "border-[1px] border-[#000]"
       }`}
