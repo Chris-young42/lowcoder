@@ -1,4 +1,4 @@
-import LowcodeEditor from "./editor";
+import LowcodeEditor from "./editor/components";
 
 function App() {
   return <LowcodeEditor />;

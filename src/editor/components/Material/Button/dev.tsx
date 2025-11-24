@@ -7,7 +7,7 @@ import type { CommonComponentProps } from "../../../interface";
 //   text: string;
 // }
 
-const Button = ({ type, text, id ,styles}: CommonComponentProps) => {
+const Button = ({ type, text, id, styles }: CommonComponentProps) => {
   return (
     <AntdButton data-component-id={id} type={type} style={styles}>
       {text}

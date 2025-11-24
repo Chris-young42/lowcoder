@@ -1,7 +1,10 @@
 import { create } from "zustand";
-import Container from "../components/Material/Container";
-import Button from "../components/Material/Button";
-import Page from "../components/Material/Page";
+import ContainerDev from "../components/Material/Container/dev";
+import ButtonDev from "../components/Material/Button/dev";
+import PageDev from "../components/Material/Page/dev";
+import ContainerProd from "../components/Material/Container/prod";
+import ButtonProd from "../components/Material/Button/prod";
+import PageProd from "../components/Material/Page/prod";
 
 export interface ComponentSetter {
   name: string;
@@ -10,13 +13,20 @@ export interface ComponentSetter {
   [key: string]: any;
 }
 
+export interface ComponentEvent {
+  name: string;
+  label: string;
+}
+
 export interface ComponentConfig {
   name: string;
+  defaultProps: Record<string, any>;
   desc: string;
   setter?: ComponentSetter[];
-  component: any;
-  defaultProps: Record<string, any>;
   stylesSetter?: ComponentSetter[];
+  events?: ComponentEvent[];
+  dev: any;
+  prod: any;
 }
 interface State {
   componentConfig: { [key: string]: ComponentConfig };
@@ -32,7 +42,9 @@ export const useComponentConfigStore = create<State & Action>((set) => ({
       name: "Container",
       defaultProps: {},
       desc: "容器",
-      component: Container,
+      // component: Container,
+      dev: ContainerDev,
+      prod: ContainerProd,
     },
     Button: {
       name: "Button",
@@ -68,15 +80,19 @@ export const useComponentConfigStore = create<State & Action>((set) => ({
           type: "inputNumber",
         },
       ],
-      
+
       desc: "按钮",
-      component: Button,
+      // component: Button,
+      dev: ButtonDev,
+      prod: ButtonProd,
     },
     Page: {
       name: "Page",
       defaultProps: {},
       desc: "页面",
-      component: Page,
+      // component: Page,
+      dev: PageDev,
+      prod: PageProd,
     },
   },
   registerComponent: (name, componentConfig) =>
