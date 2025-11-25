@@ -7,7 +7,7 @@ export interface ModalRef {
     close: () => void
 }
 
-const ModalProd: React.ForwardRefRenderFunction<ModalRef, CommonComponentProps> = ({ children, title, onOk, onCancel, styles }, ref) => {
+const Modal: React.ForwardRefRenderFunction<ModalRef, CommonComponentProps> = ({ children, title, onOk, onCancel, styles }, ref) => {
 
   const [open, setOpen] = useState(false);
 
@@ -41,4 +41,4 @@ const ModalProd: React.ForwardRefRenderFunction<ModalRef, CommonComponentProps> 
   );
 }
 
-export default forwardRef(ModalProd as any);
+export default forwardRef(Modal as any);
