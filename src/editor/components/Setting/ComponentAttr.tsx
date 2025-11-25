@@ -1,7 +1,7 @@
 import { Form, Input, Select } from "antd";
 import { useEffect } from "react";
 import {
-  // type ComponentConfig,
+  type ComponentConfig,
   type ComponentSetter,
   useComponentConfigStore,
 } from "../../stores/component-config";

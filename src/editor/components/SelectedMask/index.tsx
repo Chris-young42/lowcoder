@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
-import { getComponentById, useComponetsStore } from "../../stores/components";
+
 import { Dropdown, Popconfirm, Space } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
+import { getComponentById, useComponetsStore } from "../../stores/components";
 
 interface SelectedMaskProps {
   portalWrapperClassName: string;
@@ -35,8 +36,11 @@ function SelectedMask({
   useEffect(() => {
     updatePosition();
   }, [componentId]);
+
   useEffect(() => {
-    updatePosition();
+    setTimeout(() => {
+      updatePosition();
+    }, 200);
   }, [components]);
 
   useEffect(() => {
@@ -48,6 +52,7 @@ function SelectedMask({
       window.removeEventListener("resize", resizeHandler);
     };
   }, []);
+
   function updatePosition() {
     if (!componentId) return;
 

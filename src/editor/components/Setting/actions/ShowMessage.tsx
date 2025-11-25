@@ -1,6 +1,6 @@
 import { Input, Select } from "antd";
-import { useComponetsStore } from "../../../stores/components";
 import { useEffect, useState } from "react";
+import { useComponetsStore } from "../../../stores/components";
 
 export interface ShowMessageConfig {
   type: "showMessage";

@@ -8,7 +8,7 @@ import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 export function ComponentEvent() {
 
-    const { curComponent, updateComponentProps } = useComponetsStore();
+    const { curComponentId, curComponent, updateComponentProps } = useComponetsStore();
     const { componentConfig } = useComponentConfigStore();
     const [actionModalOpen, setActionModalOpen] = useState(false);
     const [curEvent, setCurEvent] = useState<ComponentEvent>();
